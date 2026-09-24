@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>License to Publish — Health Politics</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hp-red: #9B2C2C;
+    --hp-red-light: #C83E3E;
+    --hp-dark: #414141;
+    --hp-text: #414141;
+    --hp-muted: #787878;
+    --hp-border: #D0B49F;
+    --hp-bg: #F7F3EF;
+    --hp-white: #FFFFFF;
+    --hp-accent-bg: #EDE6DD;
+    --hp-input-bg: #FFFFFF;
+    --hp-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --hp-teal: #1A535C;
+    --hp-beige: #D0B49F;
+    --hp-link: #C83E3E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--hp-text);
+    background: var(--hp-bg);
+  }
+
+  .form-container {
+    max-width: 820px;
+    margin: 40px auto;
+    background: var(--hp-white);
+    border: 1px solid var(--hp-border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .form-header {
+    background: var(--hp-red);
+    color: white;
+    padding: 32px 48px;
+  }
+
+  .form-header h1 {
+    font-family: 'Noto Serif', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .form-header .journal-name {
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .form-body { padding: 40px 48px; }
+
+  .section { margin-bottom: 36px; }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--hp-red);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--hp-red);
+    margin-bottom: 20px;
+  }
+
+  .field-group { margin-bottom: 16px; }
+
+  .field-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--hp-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+
+  .field-group input[type="text"],
+  .field-group input[type="email"],
+  .field-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--hp-border);
+    border-radius: 4px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    color: var(--hp-text);
+    background: var(--hp-input-bg);
+    transition: border-color 0.2s;
+  }
+
+  .field-group input:focus,
+  .field-group textarea:focus {
+    outline: none;
+    border-color: var(--hp-red);
+    box-shadow: 0 0 0 3px rgba(155,44,44,0.08);
+  }
+
+  .field-group textarea { resize: vertical; min-height: 60px; }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Author blocks */
+  .author-block {
+    background: var(--hp-accent-bg);
+    border: 1px solid var(--hp-beige);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .author-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .author-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--hp-red);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .remove-author {
+    background: none;
+    border: none;
+    color: var(--hp-muted);
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+
+  .remove-author:hover { color: var(--hp-red); background: rgba(155,44,44,0.08); }
+
+  .corresponding-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--hp-muted);
+  }
+
+  .corresponding-check input[type="checkbox"] {
+    accent-color: var(--hp-red);
+    width: 16px;
+    height: 16px;
+  }
+
+  .add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    background: var(--hp-white);
+    border: 1px dashed var(--hp-border);
+    border-radius: 4px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 13px;
+    color: var(--hp-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .add-btn:hover {
+    border-color: var(--hp-red);
+    color: var(--hp-red);
+    background: rgba(155,44,44,0.03);
+  }
+
+  /* CRediT table */
+  .credit-table-wrapper { overflow-x: auto; margin-top: 10px; }
+
+  .credit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .credit-table th {
+    background: var(--hp-red);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 8px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .credit-table th:first-child { text-align: left; min-width: 180px; }
+
+  .credit-table th.author-col {
+    max-width: 80px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .credit-table td {
+    padding: 8px;
+    border-bottom: 1px solid #E8E0D6;
+  }
+
+  .credit-table td:first-child {
+    font-size: 13px;
+    color: var(--hp-text);
+  }
+
+  .credit-table td:not(:first-child) { text-align: center; }
+
+  .credit-table tr:hover { background: rgba(155,44,44,0.02); }
+
+  .credit-table input[type="checkbox"] {
+    accent-color: var(--hp-red);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .credit-table tbody tr:nth-child(even) { background: #FAFAFA; }
+  .credit-table tbody tr:nth-child(even):hover { background: rgba(155,44,44,0.03); }
+
+  /* Agreement text */
+  .agreement-box {
+    background: var(--hp-accent-bg);
+    border: 1px solid var(--hp-beige);
+    border-radius: 6px;
+    padding: 28px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--hp-text);
+  }
+
+  /* License selector */
+  .license-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .license-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    border: 1.5px solid var(--hp-beige);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--hp-white);
+  }
+
+  .license-option:hover { border-color: var(--hp-red); }
+
+  .license-option.selected {
+    border-color: var(--hp-red);
+    background: rgba(155,44,44,0.03);
+  }
+
+  .license-option input[type="radio"] {
+    accent-color: var(--hp-red);
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .license-info { display: flex; flex-direction: column; gap: 4px; }
+
+  .license-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--hp-text);
+  }
+
+  .license-desc {
+    font-size: 12px;
+    color: var(--hp-muted);
+    line-height: 1.5;
+  }
+
+  .agreement-box p { margin-bottom: 12px; }
+  .agreement-box p:last-child { margin-bottom: 0; }
+
+  .agreement-box .clause-num {
+    font-weight: 600;
+    color: var(--hp-red);
+  }
+
+  .agreement-box em { font-style: italic; }
+
+  /* Signature area */
+  .signature-area {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hp-border);
+  }
+
+  .sig-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  /* Submit button */
+  .submit-section { text-align: center; padding: 32px 0 8px; }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    background: var(--hp-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(155,44,44,0.25);
+  }
+
+  .submit-btn:hover { background: var(--hp-red-light); box-shadow: 0 4px 14px rgba(155,44,44,0.3); }
+
+  .submit-btn svg { width: 18px; height: 18px; }
+
+  .form-footer {
+    text-align: center;
+    padding: 20px 48px;
+    font-size: 11px;
+    color: var(--hp-muted);
+    border-top: 1px solid var(--hp-border);
+  }
+
+  /* ============ PRINT STYLES ============ */
+  @media print {
+    @page { size: A4; margin: 20mm 18mm; }
+
+    body { background: white; font-size: 11pt; }
+
+    .form-container {
+      max-width: 100%;
+      margin: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .form-header {
+      background: white !important;
+      color: var(--hp-dark) !important;
+      padding: 0 0 16pt;
+      border-bottom: 2.5pt solid var(--hp-red);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .form-header h1 { color: var(--hp-red) !important; font-size: 16pt; }
+    .form-header .journal-name { color: var(--hp-muted) !important; }
+
+    .form-body { padding: 20pt 0; }
+
+    .section-title {
+      font-size: 10pt;
+      border-bottom-width: 1.5pt;
+    }
+
+    .field-group input,
+    .field-group textarea {
+      border: none;
+      border-bottom: 0.5pt solid #999;
+      border-radius: 0;
+      padding: 4pt 2pt;
+      background: white;
+      box-shadow: none;
+    }
+
+    .author-block {
+      background: white !important;
+      border: 0.5pt solid #CCC;
+      padding: 12pt;
+      break-inside: avoid;
+    }
+
+    .add-btn, .remove-author { display: none !important; }
+
+    .credit-table th {
+      background: var(--hp-red) !important;
+      color: white !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-size: 8pt;
+      padding: 6pt 4pt;
+    }
+
+    .credit-table td { padding: 4pt; font-size: 9pt; }
+
+    .credit-table input[type="checkbox"] { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .agreement-box {
+      background: white !important;
+      border: 0.5pt solid #CCC;
+      padding: 14pt;
+      font-size: 10pt;
+    }
+
+    .license-option {
+      background: white !important;
+      border: 0.5pt solid #CCC;
+      padding: 10pt;
+    }
+
+    .license-option.selected {
+      border: 1.5pt solid var(--hp-red) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .license-option input[type="radio"] {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .submit-section { display: none !important; }
+
+    .form-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 8pt;
+    }
+
+    .signature-area { break-inside: avoid; }
+  }
+
+  /* ============ v2 additions (DOI metadata) ============ */
+  .notice {
+    background: #FFF8E6;
+    border: 1px solid #E8C872;
+    border-left: 4px solid #C9A227;
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .notice strong { color: var(--hp-dark); }
+
+  .office-box {
+    background: var(--hp-accent-bg);
+    border: 1px solid var(--hp-beige);
+    border-radius: 6px;
+    padding: 18px 20px 4px;
+  }
+  .office-box .hint { font-size: 12px; color: var(--hp-muted); margin-bottom: 12px; }
+  .field-row.three { grid-template-columns: 1fr 1fr 1fr; }
+  .field-group input[readonly] { background: var(--hp-accent-bg); color: var(--hp-dark); }
+
+  .field-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--hp-border);
+    border-radius: 4px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    color: var(--hp-text);
+    background: var(--hp-input-bg);
+  }
+
+  .field-help { font-size: 12px; color: var(--hp-muted); margin-top: 4px; line-height: 1.5; }
+  .req::after { content: " *"; color: var(--hp-red); }
+  .opt { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--hp-muted); }
+
+  .needs { border-left: 3px solid #C9A227 !important; }
+  .invalid { border-color: var(--hp-red) !important; box-shadow: 0 0 0 3px rgba(155,44,44,0.10) !important; }
+  .orcid-msg { font-size: 12px; margin-top: 4px; }
+  .orcid-msg.ok { color: #2E7D32; }
+  .orcid-msg.bad { color: var(--hp-red); }
+
+  .aff-block {
+    background: var(--hp-white);
+    border: 1px solid #E3D6C8;
+    border-radius: 4px;
+    padding: 12px 14px 2px;
+    margin-bottom: 10px;
+  }
+  .aff-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .aff-label { font-size: 11px; font-weight: 600; color: var(--hp-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .add-btn.small { padding: 6px 12px; font-size: 12px; margin-bottom: 6px; }
+
+  .choice-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .choice-row label { display: flex; gap: 10px; align-items: center; font-size: 14px; cursor: pointer; }
+  .choice-row input[type="radio"] { accent-color: var(--hp-red); width: 16px; height: 16px; }
+
+  .funder-block {
+    background: var(--hp-accent-bg);
+    border: 1px solid var(--hp-beige);
+    border-radius: 6px;
+    padding: 16px 18px 4px;
+    margin-bottom: 12px;
+  }
+
+  .kw-count { font-size: 12px; color: var(--hp-muted); margin-top: 4px; }
+
+  .check-panel {
+    display: none;
+    text-align: left;
+    background: #FDF1F1;
+    border: 1px solid #E4B4B4;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 0 0 20px;
+    font-size: 13px;
+  }
+  .check-panel.show { display: block; }
+  .check-panel ul { margin: 8px 0 0 18px; }
+  .check-panel li { margin-bottom: 2px; }
+
+  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .secondary-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 24px;
+    background: var(--hp-white);
+    color: var(--hp-red);
+    border: 1.5px solid var(--hp-red);
+    border-radius: 4px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px; font-weight: 500;
+    cursor: pointer;
+  }
+  .secondary-btn:hover { background: rgba(155,44,44,0.04); }
+  .submit-note { font-size: 12px; color: var(--hp-muted); margin-top: 14px; line-height: 1.6; }
+
+  .print-val { display: none; }
+  .status-banner { display:none; border-radius:4px; padding:14px 18px; font-size:13px; margin-bottom:24px; }
+  .status-banner.show { display:block; }
+  .status-banner.info { background:#EEF4F5; border:1px solid #B9D0D4; border-left:4px solid var(--hp-teal); }
+  .status-banner.error { background:#FDF1F1; border:1px solid #E4B4B4; border-left:4px solid var(--hp-red); }
+  .done-panel { display:none; text-align:left; background:#F1F7F1; border:1px solid #B8D8B8; border-left:4px solid #2E7D32; border-radius:6px; padding:18px 22px; margin:0 0 20px; font-size:14px; }
+  .done-panel.show { display:block; }
+  .submit-btn[disabled] { opacity:0.6; cursor:wait; }
+  #loading { position:fixed; inset:0; background:rgba(247,243,239,0.92); display:flex; align-items:center; justify-content:center; font-size:15px; color:var(--hp-muted); z-index:10; }
+  #loading.hide { display:none; }
+
+  @media (max-width: 640px) {
+    .form-container { margin: 0; border: none; }
+    .form-header, .form-body { padding-left: 16px; padding-right: 16px; }
+    .field-row, .field-row.three, .sig-row { grid-template-columns: 1fr; gap: 0; }
+  }
+
+  @media print {
+    #loading, .status-banner, .done-panel, .notice, .check-panel, .btn-row, .submit-note, .add-btn, .field-help, .orcid-msg, .kw-count { display: none !important; }
+    .field-group input, .field-group textarea, .field-group select { display: none !important; }
+    .print-val {
+      display: block;
+      border-bottom: 0.5pt solid #999;
+      padding: 3pt 2pt;
+      min-height: 14pt;
+      font-size: 10pt;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .office-box, .funder-block, .aff-block { background: white !important; border: 0.5pt solid #CCC; break-inside: avoid; }
+    .needs { border-left: none !important; }
+    .section { break-inside: auto; }
+    .section-title { break-after: avoid; }
+    .form-footer { position: static !important; margin-top: 12pt; }
+  }
+</style>
+</head>
+<body>
+
+<div id="loading">Loading your form…</div>
+<div class="form-container" id="formContainer">
+  <div class="form-header">
+    <div class="journal-name">Health Politics</div>
+    <h1>License to Publish Agreement</h1>
+    <div class="journal-name" style="margin-top:6px;text-transform:none;letter-spacing:0.02em;">with article metadata for DOI registration (Crossref)</div>
+  </div>
+
+  <div class="form-body">
+
+    <div class="status-banner" id="statusBanner"></div>
+
+    <div class="notice" id="prefillNotice" style="display:none;">
+      <strong>Pre-filled by the Editorial Office.</strong> The details below were taken from your manuscript and our correspondence. Please check every field, correct anything that is wrong, and complete the fields marked with a yellow edge. These details are deposited with Crossref exactly as entered and form the permanent DOI record of your article.
+    </div>
+
+    <!-- 0. Editorial Office -->
+    <div class="section">
+      <div class="section-title">Editorial Office Use</div>
+      <div class="office-box">
+        <div class="hint">Completed by the Editorial Office. Authors do not need to change these fields.</div>
+        <div class="field-row three">
+          <div class="field-group"><label>Journal</label><input type="text" value="Health Politics" readonly></div>
+          <div class="field-group"><label>eISSN</label><input type="text" value="3092-5517" readonly></div>
+          <div class="field-group"><label>DOI prefix</label><input type="text" value="10.66534" readonly></div>
+        </div>
+        <div class="field-row three">
+          <div class="field-group"><label>Volume</label><input type="text" data-bind="office.volume" data-office></div>
+          <div class="field-group"><label>Issue</label><input type="text" data-bind="office.issue" data-office></div>
+          <div class="field-group"><label>Article number</label><input type="text" data-bind="office.article_no" data-office placeholder="e.g., e014"></div>
+        </div>
+        <div class="field-group"><label>DOI</label><input type="text" data-bind="office.doi" data-office placeholder="Assigned at typesetting, e.g., 10.66534/hp.2026.0014"></div>
+        <div class="field-row">
+          <div class="field-group"><label>Received</label><input type="text" data-bind="office.received" data-office placeholder="YYYY-MM-DD"></div>
+          <div class="field-group"><label>Revised <span class="opt">(if any)</span></label><input type="text" data-bind="office.revised" data-office placeholder="YYYY-MM-DD"></div>
+        </div>
+        <div class="field-row">
+          <div class="field-group"><label>Accepted</label><input type="text" data-bind="office.accepted" data-office placeholder="YYYY-MM-DD"></div>
+          <div class="field-group"><label>Published online</label><input type="text" data-bind="office.published" data-office placeholder="YYYY-MM-DD"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Manuscript Information -->
+    <div class="section">
+      <div class="section-title">1. Manuscript Information</div>
+      <div class="field-group">
+        <label class="req">Manuscript Title</label>
+        <textarea data-bind="ms.title" data-required rows="2" placeholder="Enter the final title exactly as it should appear (subtitle after a colon)"></textarea>
+        <div class="field-help">The DOI record is built from this title. Please use sentence or title case as in the manuscript, without a trailing full stop.</div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="req">Article Type</label>
+          <select data-bind="ms.type" data-required onchange="onTypeChange()">
+            <option value="">Select…</option>
+            <option>Original Research</option>
+            <option>Review</option>
+            <option>Theoretical / Conceptual Article</option>
+            <option>Methods</option>
+            <option>Policy &amp; Practice</option>
+            <option>National Health Politics</option>
+            <option>Perspective</option>
+            <option>Commentary</option>
+            <option>Response</option>
+            <option>Editorial</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Manuscript Number</label>
+          <input type="text" data-bind="ms.ms_id" placeholder="e.g., HP-26-0012">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Submission Date</label>
+          <input type="text" data-bind="ms.submitted" placeholder="YYYY-MM-DD">
+        </div>
+        <div class="field-group">
+          <label>Running Head <span class="opt">(optional, ≤ 60 characters)</span></label>
+          <input type="text" data-bind="ms.running_head" maxlength="60" placeholder="Short title for page headers">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Abstract and Keywords -->
+    <div class="section">
+      <div class="section-title">2. Abstract and Keywords</div>
+      <div class="field-group">
+        <label id="absLabel">Abstract</label>
+        <textarea data-bind="abstract" id="absField" rows="8" placeholder="Final abstract, exactly as it appears in the article"></textarea>
+        <div class="field-help" id="absHelp">Plain text. For a structured abstract, start each part on a new line with its heading (e.g., “Background: …”). Not required for Editorials, Commentaries and Responses.</div>
+        <div class="kw-count" id="absCount"></div>
+      </div>
+      <div class="field-group">
+        <label id="kwLabel">Keywords</label>
+        <input type="text" data-bind="keywords" id="kwField" placeholder="4–6 keywords, separated by semicolons">
+        <div class="kw-count" id="kwCount"></div>
+      </div>
+    </div>
+
+    <!-- 3. Authors -->
+    <div class="section">
+      <div class="section-title">3. Author Information</div>
+      <div class="field-help" style="margin:-8px 0 16px;">List all authors in the order of authorship. Names and affiliations are registered with Crossref as entered. An ORCID iD is strongly recommended for every author (register free at orcid.org).</div>
+      <div id="authorList"></div>
+      <button class="add-btn" onclick="addAuthor()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+        Add Author
+      </button>
+    </div>
+
+    <!-- 4. CRediT -->
+    <div class="section">
+      <div class="section-title">4. Author Contributions (CRediT)</div>
+      <div class="credit-table-wrapper">
+        <table class="credit-table" id="creditTable">
+          <thead><tr id="creditHeader"><th>Role</th></tr></thead>
+          <tbody id="creditBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. Funding -->
+    <div class="section">
+      <div class="section-title">5. Funding</div>
+      <div class="choice-row" id="fundingChoice">
+        <label><input type="radio" name="fundmode" value="none" onchange="setFundMode('none')"> This work received no specific grant from any funding agency.</label>
+        <label><input type="radio" name="fundmode" value="funded" onchange="setFundMode('funded')"> This work was funded (please list each funder and grant below).</label>
+      </div>
+      <div id="funderArea" style="display:none;">
+        <div id="funderList"></div>
+        <button class="add-btn" onclick="addFunder()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg>
+          Add Funder
+        </button>
+      </div>
+      <div class="field-group" style="margin-top:16px;">
+        <label>Funding Statement <span class="opt">(as printed in the article)</span></label>
+        <textarea data-bind="funding_statement" rows="2" placeholder="e.g., CB is funded by a Wellcome Trust award (221266/Z/30/Z). TS reports no funding sources."></textarea>
+      </div>
+    </div>
+
+    <!-- 6. Declarations -->
+    <div class="section">
+      <div class="section-title">6. Declarations</div>
+      <div class="field-group">
+        <label class="req">Conflict of Interest</label>
+        <textarea data-bind="decl.coi" data-required rows="2" placeholder="e.g., The authors declare no competing interests."></textarea>
+      </div>
+      <div class="field-group">
+        <label class="req">Ethics Statement</label>
+        <textarea data-bind="decl.ethics" data-required rows="2" placeholder="Approval body and reference number, or “Not applicable.”"></textarea>
+      </div>
+      <div class="field-group">
+        <label class="req">Data Availability Statement</label>
+        <textarea data-bind="decl.data" data-required rows="2" placeholder="Where the data can be found (repository and DOI), or “No new data were created or analysed.”"></textarea>
+      </div>
+    </div>
+
+    <!-- 7. License Selection -->
+    <div class="section">
+      <div class="section-title">7. License Selection</div>
+      <div class="agreement-box" style="margin-bottom: 20px;">
+        <p><em>Health Politics</em> is a Gold Open Access journal. The Author(s) retain copyright and grant <em>Health Politics</em> a license to publish under one of the following Creative Commons licenses:</p>
+      </div>
+      <div class="license-options" id="licenseOptions">
+        <label class="license-option selected">
+          <input type="radio" name="license" value="CC BY 4.0" checked onchange="selectLicense(this)">
+          <div class="license-info">
+            <span class="license-name">CC BY 4.0</span>
+            <span class="license-desc">Permits unrestricted reuse, distribution, and reproduction, provided the original work is properly cited. <strong>Recommended / Default.</strong></span>
+          </div>
+        </label>
+        <label class="license-option">
+          <input type="radio" name="license" value="CC BY-NC 4.0" onchange="selectLicense(this)">
+          <div class="license-info">
+            <span class="license-name">CC BY-NC 4.0</span>
+            <span class="license-desc">Permits non-commercial reuse, distribution, and reproduction, provided the original work is properly cited. Available where required by funder or author preference.</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- 8. License to Publish Agreement -->
+    <div class="section">
+      <div class="section-title">8. License to Publish Agreement</div>
+      <div class="agreement-box">
+        <p>By signing this form, the Author(s) agree to the following terms upon acceptance of the manuscript for publication in <em>Health Politics</em>.</p>
+
+        <p><span class="clause-num">1. Grant of License.</span> The Author(s) hereby grant to <em>Health Politics</em> an exclusive license to publish, reproduce, distribute, and display the manuscript in all forms and media, whether now known or hereafter developed. The manuscript will be published under the Creative Commons license selected above, and the license terms will appear on the article page and be deposited to Crossref as machine-readable metadata.</p>
+
+        <p><span class="clause-num">2. Retention of Copyright.</span> The Author(s) retain copyright ownership of the manuscript. Under the chosen Creative Commons license, the Author(s) may:
+        <br>(a) Self-archive any version of the manuscript (preprint, accepted manuscript, or version of record) immediately and without embargo, provided a DOI citation to the published version is included.
+        <br>(b) Use the manuscript, in whole or in part, for the Author(s)' own teaching, research, and scholarly purposes.
+        <br>(c) Retain all patent and trademark rights, and rights to any process or procedure described in the manuscript.</p>
+
+        <p><span class="clause-num">3. Author Representations and Warranties.</span> The Author(s) represent and warrant that:
+        <br>(a) The manuscript is an original work and has not been previously published in whole or in part, nor is it under consideration for publication elsewhere. Deposition as a preprint does not constitute prior publication.
+        <br>(b) All authors have read and approved the final version of the manuscript and agree to its submission.
+        <br>(c) The manuscript does not infringe upon the copyright or other intellectual property rights of any third party.
+        <br>(d) Any previously published material included in the manuscript has been duly cited, and the Author(s) have obtained all necessary permissions from the original copyright holders for its reproduction.
+        <br>(e) The research was conducted in compliance with applicable ethical standards and, where required, has received appropriate institutional review board or ethics committee approval.</p>
+
+        <p><span class="clause-num">4. Responsibility.</span> The Author(s) shall be responsible for the accuracy and integrity of the contents of the manuscript.</p>
+
+        <p><span class="clause-num">5. Governing Law.</span> This Agreement shall be governed by and construed in accordance with the laws of the Republic of Korea.</p>
+
+        <p><span class="clause-num">6. Effective Date.</span> This Agreement becomes effective upon acceptance of the manuscript for publication in <em>Health Politics</em>.</p>
+      </div>
+    </div>
+
+    <!-- 9. Signatures -->
+    <div class="section">
+      <div class="section-title">9. Corresponding Author Signature</div>
+      <div class="signature-area" id="signatureArea"></div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-section">
+      <div class="check-panel" id="checkPanel"></div>
+      <div class="done-panel" id="donePanel"></div>
+      <div class="btn-row">
+        <button class="submit-btn" id="submitBtn" onclick="submitForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Agree to License Terms and Submit
+        </button>
+      </div>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="secondary-btn" onclick="printForm()">Save a PDF copy</button>
+        <button class="secondary-btn" onclick="downloadMetadata()">Download Metadata (JSON)</button>
+      </div>
+      <div class="submit-note">Submitting sends the signed agreement and the article metadata directly to the Editorial Office; a PDF copy is emailed to the corresponding author.<br>If submission fails, please save a PDF copy and email it to journal@hpolitics.org.</div>
+    </div>
+
+  </div>
+
+  <div class="form-footer">
+    &copy; Health Politics. All rights reserved.
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script>
+const AGREEMENT_VERSION = 'LTP v2.0 (September 2026)';
+const TOKEN = new URLSearchParams(location.search).get('t') || '';
+let HP_PREFILL = null;
+
+const CREDIT_ROLES = [
+  'Conceptualization', 'Data curation', 'Formal analysis',
+  'Funding acquisition', 'Investigation', 'Methodology',
+  'Project administration', 'Resources', 'Software',
+  'Supervision', 'Validation', 'Visualization',
+  'Writing – original draft', 'Writing – review & editing'
+];
+const NO_ABSTRACT_TYPES = ['Commentary', 'Response', 'Editorial'];
+const LICENSE_URLS = {
+  'CC BY 4.0': 'https://creativecommons.org/licenses/by/4.0/',
+  'CC BY-NC 4.0': 'https://creativecommons.org/licenses/by-nc/4.0/'
+};
+
+const state = {
+  office: { volume: '', issue: '', article_no: '', doi: '', received: '', revised: '', accepted: '', published: '' },
+  ms: { title: '', type: '', ms_id: '', submitted: '', running_head: '' },
+  abstract: '', keywords: '', funding_statement: '',
+  decl: { coi: '', ethics: '', data: '' },
+  fundMode: '', funders: [], sig: {}
+};
+let authors = [];
+let authorIdCounter = 0;
+let funderIdCounter = 0;
+
+/* ---------- generic binding ---------- */
+function getPath(obj, path) { return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj); }
+function setPath(obj, path, val) {
+  const ks = path.split('.'); const last = ks.pop();
+  const tgt = ks.reduce((o, k) => o[k], obj); tgt[last] = val;
+}
+function bindStatic() {
+  document.querySelectorAll('[data-bind]').forEach(el => {
+    const p = el.dataset.bind;
+    const v = getPath(state, p);
+    el.value = v == null ? '' : v;
+    if (el.hasAttribute('data-office') && el.value.trim()) el.readOnly = true;
+    const h = () => { setPath(state, p, el.value); markNeeds(el); if (p === 'abstract' || p === 'keywords') updateCounts(); };
+    el.addEventListener('input', h); el.addEventListener('change', h);
+    markNeeds(el);
+  });
+}
+function markNeeds(el) {
+  const required = el.hasAttribute('data-required') || el.dataset.softreq === '1';
+  el.classList.toggle('needs', required && !String(el.value || '').trim());
+}
+
+/* ---------- article type ---------- */
+function abstractRequired() { return !!state.ms.type && !NO_ABSTRACT_TYPES.includes(state.ms.type); }
+function onTypeChange() {
+  const sel = document.querySelector('select[data-bind="ms.type"]'); if (sel) state.ms.type = sel.value;
+  const req = abstractRequired();
+  ['absLabel', 'kwLabel'].forEach(id => document.getElementById(id).classList.toggle('req', req));
+  const a = document.getElementById('absField'), k = document.getElementById('kwField');
+  a.dataset.softreq = req ? '1' : '0'; k.dataset.softreq = req ? '1' : '0';
+  markNeeds(a); markNeeds(k);
+}
+function splitKeywords(s) { return (s || '').split(/[;\n]+/).map(x => x.trim()).filter(Boolean); }
+function updateCounts() {
+  const words = (state.abstract.trim().match(/\S+/g) || []).length;
+  document.getElementById('absCount').textContent = words ? words + ' words' : '';
+  const n = splitKeywords(state.keywords).length;
+  document.getElementById('kwCount').textContent = n ? n + ' keyword' + (n > 1 ? 's' : '') : '';
+}
+
+/* ---------- ORCID ---------- */
+function normOrcid(s) {
+  return (s || '').trim().replace(/^https?:\/\/(www\.)?orcid\.org\//i, '').toUpperCase();
+}
+function orcidValid(s) {
+  const o = normOrcid(s);
+  if (!/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/.test(o)) return false;
+  const d = o.replace(/-/g, ''); let t = 0;
+  for (let i = 0; i < 15; i++) t = (t + parseInt(d[i], 10)) * 2;
+  const r = (12 - (t % 11)) % 11; const c = r === 10 ? 'X' : String(r);
+  return c === d[15];
+}
+
+/* ---------- authors ---------- */
+function blankAff() { return { dept: '', inst: '', city: '', country: '', ror: '' }; }
+function addAuthor(prefill) {
+  const id = ++authorIdCounter;
+  authors.push({
+    id,
+    given: prefill?.given || '', family: prefill?.family || '',
+    email: prefill?.email || '', orcid: prefill?.orcid || '',
+    affs: (prefill?.affs && prefill.affs.length) ? prefill.affs.map(a => Object.assign(blankAff(), a)) : [blankAff()],
+    isCorresponding: !!prefill?.corresponding,
+    credit: Object.assign({}, prefill?.credit || {})
+  });
+  renderAll();
+}
+function removeAuthor(id) {
+  if (authors.length <= 1) return;
+  authors = authors.filter(a => a.id !== id);
+  renderAll();
+}
+function fullName(a) { return [a.given, a.family].map(s => (s || '').trim()).filter(Boolean).join(' '); }
+function updateAuthor(id, field, value, el) {
+  const a = authors.find(a => a.id === id); if (!a) return;
+  a[field] = value;
+  if (el) markNeeds(el);
+  if (field === 'orcid') showOrcid(id);
+  if (['given', 'family', 'email'].includes(field)) { renderCreditHeader(); renderSignatures(); }
+}
+function updateAff(id, idx, field, value, el) {
+  const a = authors.find(a => a.id === id); if (!a) return;
+  a.affs[idx][field] = value; if (el) markNeeds(el);
+}
+function addAff(id) { const a = authors.find(a => a.id === id); a.affs.push(blankAff()); renderAuthors(); }
+function removeAff(id, idx) { const a = authors.find(a => a.id === id); if (a.affs.length > 1) { a.affs.splice(idx, 1); renderAuthors(); } }
+function showOrcid(id) {
+  const a = authors.find(a => a.id === id); const m = document.getElementById('orcidmsg_' + id);
+  if (!m) return;
+  if (!a.orcid.trim()) { m.className = 'orcid-msg'; m.textContent = ''; return; }
+  if (orcidValid(a.orcid)) { m.className = 'orcid-msg ok'; m.textContent = '✓ Valid ORCID iD: https://orcid.org/' + normOrcid(a.orcid); }
+  else { m.className = 'orcid-msg bad'; m.textContent = 'This does not look like a valid ORCID iD (format 0000-0000-0000-0000).'; }
+}
+function toggleCorresponding(id) {
+  const a = authors.find(a => a.id === id);
+  if (a) { a.isCorresponding = !a.isCorresponding; renderSignatures(); }
+}
+function toggleCredit(authorId, role) {
+  const a = authors.find(a => a.id === authorId);
+  if (a) a.credit[role] = !a.credit[role];
+}
+function inp(label, val, handler, opts = {}) {
+  const cls = opts.req ? 'req' : '';
+  const needs = opts.req && !String(val || '').trim() ? 'needs' : '';
+  const ro = opts.soft ? ' data-softreq="1"' : '';
+  return `<div class="field-group"><label class="${cls}">${label}${opts.opt ? ' <span class="opt">' + opts.opt + '</span>' : ''}</label>
+    <input type="${opts.type || 'text'}" class="${needs}" ${opts.req ? 'data-softreq="1"' : ''}${ro} value="${escHtml(val || '')}" placeholder="${opts.ph || ''}" oninput="${handler}">
+    ${opts.after || ''}</div>`;
+}
+function renderAuthors() {
+  const list = document.getElementById('authorList');
+  list.innerHTML = '';
+  authors.forEach((a, idx) => {
+    const block = document.createElement('div');
+    block.className = 'author-block';
+    const affHtml = a.affs.map((f, j) => `
+      <div class="aff-block">
+        <div class="aff-head"><span class="aff-label">Affiliation ${a.affs.length > 1 ? j + 1 : ''}</span>
+          ${a.affs.length > 1 ? `<button class="remove-author" onclick="removeAff(${a.id},${j})">Remove</button>` : ''}</div>
+        ${inp('Department / Unit', f.dept, `updateAff(${a.id},${j},'dept',this.value,this)`, { ph: 'e.g., Department of Sociology and Political Science' })}
+        ${inp('Institution', f.inst, `updateAff(${a.id},${j},'inst',this.value,this)`, { req: true, ph: 'e.g., Norwegian University of Science and Technology' })}
+        <div class="field-row">
+          ${inp('City', f.city, `updateAff(${a.id},${j},'city',this.value,this)`, { req: true, ph: 'e.g., Trondheim' })}
+          ${inp('Country', f.country, `updateAff(${a.id},${j},'country',this.value,this)`, { req: true, ph: 'e.g., Norway' })}
+        </div>
+        ${inp('ROR ID', f.ror, `updateAff(${a.id},${j},'ror',this.value,this)`, { opt: '(optional; look up at ror.org)', ph: 'e.g., https://ror.org/05xg72x27' })}
+      </div>`).join('');
+    block.innerHTML = `
+      <div class="author-block-header">
+        <span class="author-number">Author ${idx + 1}</span>
+        ${authors.length > 1 ? `<button class="remove-author" onclick="removeAuthor(${a.id})">Remove</button>` : ''}
+      </div>
+      <div class="field-row">
+        ${inp('Given Name(s)', a.given, `updateAuthor(${a.id},'given',this.value,this)`, { req: true, ph: 'e.g., Gildong' })}
+        ${inp('Family Name', a.family, `updateAuthor(${a.id},'family',this.value,this)`, { req: true, ph: 'e.g., Hong' })}
+      </div>
+      <div class="field-row">
+        ${inp('Email', a.email, `updateAuthor(${a.id},'email',this.value,this)`, { req: true, type: 'email', ph: 'email@example.com' })}
+        ${inp('ORCID iD', a.orcid, `updateAuthor(${a.id},'orcid',this.value,this)`, { ph: '0000-0000-0000-0000', after: `<div class="orcid-msg" id="orcidmsg_${a.id}"></div>` })}
+      </div>
+      ${affHtml}
+      <button class="add-btn small" onclick="addAff(${a.id})">+ Add another affiliation</button>
+      <div class="corresponding-check">
+        <input type="checkbox" id="corr_${a.id}" ${a.isCorresponding ? 'checked' : ''} onchange="toggleCorresponding(${a.id})">
+        <label for="corr_${a.id}" style="text-transform:none;font-size:13px;color:var(--hp-muted);margin:0;">Corresponding author</label>
+      </div>`;
+    list.appendChild(block);
+    showOrcid(a.id);
+  });
+}
+function getInitials(a) {
+  const n = fullName(a); if (!n) return '';
+  return n.split(/\s+/).map(w => w[0].toUpperCase()).join('');
+}
+function renderCreditHeader() {
+  const header = document.getElementById('creditHeader');
+  header.innerHTML = '<th>Role</th>';
+  authors.forEach((a, idx) => {
+    const th = document.createElement('th');
+    th.className = 'author-col';
+    th.textContent = getInitials(a) || `A${idx + 1}`;
+    if (fullName(a)) th.title = fullName(a);
+    header.appendChild(th);
+  });
+}
+function renderCreditTable() {
+  renderCreditHeader();
+  const body = document.getElementById('creditBody');
+  body.innerHTML = '';
+  CREDIT_ROLES.forEach(role => {
+    const tr = document.createElement('tr');
+    const tdRole = document.createElement('td'); tdRole.textContent = role; tr.appendChild(tdRole);
+    authors.forEach(a => {
+      const td = document.createElement('td');
+      const cb = document.createElement('input'); cb.type = 'checkbox';
+      cb.checked = !!a.credit[role]; cb.onchange = () => toggleCredit(a.id, role);
+      td.appendChild(cb); tr.appendChild(td);
+    });
+    body.appendChild(tr);
+  });
+}
+function renderSignatures() {
+  const area = document.getElementById('signatureArea');
+  const corr = authors.filter(a => a.isCorresponding);
+  const signers = corr.length > 0 ? corr : [authors[0]];
+  area.innerHTML = '';
+  signers.forEach((a, idx) => {
+    const s = state.sig[a.id] || (state.sig[a.id] = { initials: '', date: new Date().toISOString().slice(0, 10) });
+    const div = document.createElement('div');
+    if (idx > 0) div.style.marginTop = '20px';
+    div.innerHTML = `
+      <div class="sig-row">
+        <div class="field-group"><label>Name</label><input type="text" value="${escHtml(fullName(a))}" readonly style="background:var(--hp-accent-bg);"></div>
+        <div class="field-group"><label>Email</label><input type="text" value="${escHtml(a.email)}" readonly style="background:var(--hp-accent-bg);"></div>
+      </div>
+      <div class="sig-row">
+        <div class="field-group"><label class="req">Signature</label>
+          <input type="text" class="${s.initials ? '' : 'needs'}" data-softreq="1" value="${escHtml(s.initials)}" placeholder="Type your initials" oninput="state.sig[${a.id}].initials=this.value;markNeeds(this)"></div>
+        <div class="field-group"><label>Date</label>
+          <input type="text" value="${escHtml(s.date)}" placeholder="YYYY-MM-DD" oninput="state.sig[${a.id}].date=this.value"></div>
+      </div>`;
+    area.appendChild(div);
+  });
+  if (corr.length === 0 && authors.length > 0) {
+    const note = document.createElement('p');
+    note.style.cssText = 'font-size:12px;color:var(--hp-muted);margin-top:8px;font-style:italic;';
+    note.textContent = 'No corresponding author selected. Defaulting to first author.';
+    area.appendChild(note);
+  }
+}
+function renderAll() { renderAuthors(); renderCreditTable(); renderSignatures(); }
+
+/* ---------- funding ---------- */
+function setFundMode(m) {
+  state.fundMode = m;
+  document.getElementById('funderArea').style.display = m === 'funded' ? 'block' : 'none';
+  if (m === 'funded' && state.funders.length === 0) addFunder();
+}
+function addFunder(pre) {
+  state.funders.push({ id: ++funderIdCounter, name: pre?.name || '', fid: pre?.fid || '', award: pre?.award || '', recipients: pre?.recipients || '' });
+  renderFunders();
+}
+function removeFunder(id) { state.funders = state.funders.filter(f => f.id !== id); renderFunders(); }
+function updateFunder(id, k, v, el) { const f = state.funders.find(f => f.id === id); if (f) f[k] = v; if (el) markNeeds(el); }
+function renderFunders() {
+  const list = document.getElementById('funderList'); list.innerHTML = '';
+  state.funders.forEach((f, i) => {
+    const d = document.createElement('div'); d.className = 'funder-block';
+    d.innerHTML = `
+      <div class="author-block-header"><span class="author-number">Funder ${i + 1}</span>
+        <button class="remove-author" onclick="removeFunder(${f.id})">Remove</button></div>
+      ${inp('Funder Name', f.name, `updateFunder(${f.id},'name',this.value,this)`, { req: true, ph: 'e.g., Wellcome Trust' })}
+      <div class="field-row">
+        ${inp('Grant / Award Number(s)', f.award, `updateFunder(${f.id},'award',this.value,this)`, { ph: 'e.g., 221266/Z/30/Z (separate several with ;)' })}
+        ${inp('Funder ID', f.fid, `updateFunder(${f.id},'fid',this.value,this)`, { opt: '(optional; Crossref Funder ID or ROR)', ph: 'e.g., 10.13039/100010269' })}
+      </div>
+      ${inp('Recipient Author(s)', f.recipients, `updateFunder(${f.id},'recipients',this.value,this)`, { opt: '(optional)', ph: 'e.g., CB' })}`;
+    list.appendChild(d);
+  });
+}
+
+/* ---------- helpers ---------- */
+function escHtml(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function selectLicense(radio) {
+  document.querySelectorAll('.license-option').forEach(el => el.classList.remove('selected'));
+  radio.closest('.license-option').classList.add('selected');
+}
+function currentLicense() { const r = document.querySelector('input[name="license"]:checked'); return r ? r.value : ''; }
+
+/* ---------- validation ---------- */
+function validate() {
+  const miss = [];
+  const isDate = s => !s || /^\d{4}-\d{2}-\d{2}$/.test(s.trim());
+  if (!state.ms.title.trim()) miss.push('Manuscript title');
+  if (!state.ms.type) miss.push('Article type');
+  if (!isDate(state.ms.submitted)) miss.push('Submission date: use YYYY-MM-DD');
+  if (abstractRequired()) {
+    if (!state.abstract.trim()) miss.push('Abstract');
+    const n = splitKeywords(state.keywords).length;
+    if (n < 4 || n > 6) miss.push('Keywords: 4–6 keywords separated by semicolons (currently ' + n + ')');
+  }
+  authors.forEach((a, i) => {
+    const t = 'Author ' + (i + 1) + (fullName(a) ? ' (' + fullName(a) + ')' : '');
+    if (!a.given.trim()) miss.push(t + ': given name');
+    if (!a.family.trim()) miss.push(t + ': family name');
+    if (!/^\S+@\S+\.\S+$/.test(a.email.trim())) miss.push(t + ': valid email');
+    if (a.orcid.trim() && !orcidValid(a.orcid)) miss.push(t + ': ORCID iD is not valid');
+    a.affs.forEach((f, j) => {
+      const lbl = a.affs.length > 1 ? ' affiliation ' + (j + 1) : ' affiliation';
+      if (!f.inst.trim()) miss.push(t + lbl + ': institution');
+      if (!f.city.trim()) miss.push(t + lbl + ': city');
+      if (!f.country.trim()) miss.push(t + lbl + ': country');
+    });
+  });
+  if (!authors.some(a => a.isCorresponding)) miss.push('Mark at least one corresponding author');
+  if (!state.fundMode) miss.push('Funding: choose “no specific grant” or “funded”');
+  if (state.fundMode === 'funded') {
+    if (!state.funders.length) miss.push('Funding: add at least one funder');
+    state.funders.forEach((f, i) => { if (!f.name.trim()) miss.push('Funder ' + (i + 1) + ': funder name'); });
+  }
+  if (!state.decl.coi.trim()) miss.push('Conflict of interest statement');
+  if (!state.decl.ethics.trim()) miss.push('Ethics statement (write “Not applicable.” if none)');
+  if (!state.decl.data.trim()) miss.push('Data availability statement');
+  if (!currentLicense()) miss.push('License selection');
+  const corr = authors.filter(a => a.isCorresponding); const signers = corr.length ? corr : [authors[0]];
+  signers.forEach(a => { if (!(state.sig[a.id] && state.sig[a.id].initials.trim())) miss.push('Signature (initials) of ' + (fullName(a) || 'corresponding author')); });
+  return miss;
+}
+
+/* ---------- print ---------- */
+function buildPrintMirrors() {
+  document.querySelectorAll('.print-val').forEach(n => n.remove());
+  document.querySelectorAll('.form-body input, .form-body textarea, .form-body select').forEach(el => {
+    if (el.type === 'checkbox' || el.type === 'radio') return;
+    const d = document.createElement('div'); d.className = 'print-val';
+    d.textContent = el.tagName === 'SELECT' ? (el.value || '') : el.value;
+    el.insertAdjacentElement('afterend', d);
+  });
+}
+window.addEventListener('beforeprint', buildPrintMirrors);
+window.addEventListener('afterprint', () => document.querySelectorAll('.print-val').forEach(n => n.remove()));
+
+function printForm() {
+  const panel = document.getElementById('checkPanel');
+  const miss = validate();
+  if (miss.length) {
+    panel.innerHTML = '<strong>Please complete the following before signing:</strong><ul>' + miss.map(m => '<li>' + escHtml(m) + '</li>').join('') + '</ul>';
+    panel.classList.add('show');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  panel.classList.remove('show'); panel.innerHTML = '';
+  buildPrintMirrors();
+  window.print();
+}
+
+/* ---------- metadata export ---------- */
+function buildMetadata() {
+  const lic = currentLicense();
+  const o = state.office;
+  return {
+    schema: 'health-politics-ltp-metadata/2.0',
+    generated: new Date().toISOString(),
+    journal: { title: 'Health Politics', abbrev: 'Health Polit', eissn: '3092-5517', doi_prefix: '10.66534', publisher: 'Division of Health Policy and Management, Korea University' },
+    volume: o.volume, issue: o.issue, article_number: o.article_no, doi: o.doi,
+    dates: { received: o.received, revised: o.revised, accepted: o.accepted, published_online: o.published, submitted: state.ms.submitted },
+    manuscript_id: state.ms.ms_id,
+    article_type: state.ms.type,
+    title: state.ms.title.trim(),
+    running_head: state.ms.running_head.trim(),
+    abstract: state.abstract.trim(),
+    keywords: splitKeywords(state.keywords),
+    contributors: authors.map((a, i) => ({
+      sequence: i === 0 ? 'first' : 'additional',
+      contributor_role: 'author',
+      given_name: a.given.trim(), surname: a.family.trim(),
+      email: a.email.trim(),
+      orcid: a.orcid.trim() ? 'https://orcid.org/' + normOrcid(a.orcid) : '',
+      orcid_valid: a.orcid.trim() ? orcidValid(a.orcid) : null,
+      corresponding: a.isCorresponding,
+      affiliations: a.affs.map(f => ({
+        department: f.dept.trim(), institution: f.inst.trim(), city: f.city.trim(), country: f.country.trim(), ror: f.ror.trim(),
+        display: [f.dept, f.inst, f.city, f.country].map(s => s.trim()).filter(Boolean).join(', ')
+      })),
+      credit_roles: CREDIT_ROLES.filter(r => a.credit[r])
+    })),
+    funding: {
+      status: state.fundMode === 'none' ? 'no specific funding' : (state.fundMode === 'funded' ? 'funded' : ''),
+      funders: state.fundMode === 'funded' ? state.funders.map(f => ({ funder_name: f.name.trim(), funder_id: f.fid.trim(), award_numbers: f.award.split(/;/).map(s => s.trim()).filter(Boolean), recipients: f.recipients.trim() })) : [],
+      statement: state.funding_statement.trim()
+    },
+    declarations: { conflict_of_interest: state.decl.coi.trim(), ethics: state.decl.ethics.trim(), data_availability: state.decl.data.trim() },
+    license: { type: lic, url: LICENSE_URLS[lic] || '', copyright_holder: 'The Author(s)' },
+    signature: authors.filter(a => a.isCorresponding).map(a => ({ name: fullName(a), initials: (state.sig[a.id] || {}).initials || '', date: (state.sig[a.id] || {}).date || '' })),
+    completeness: { missing: validate() }
+  };
+}
+function downloadMetadata() {
+  const md = buildMetadata();
+  const name = 'HP_metadata_' + ((state.office.article_no || state.ms.ms_id || 'manuscript').replace(/[^\w.-]+/g, '_')) + '.json';
+  const blob = new Blob([JSON.stringify(md, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/* ---------- submission ---------- */
+function showBanner(kind, html) {
+  const b = document.getElementById('statusBanner');
+  b.className = 'status-banner show ' + kind; b.innerHTML = html;
+}
+async function submitForm() {
+  const panel = document.getElementById('checkPanel');
+  const miss = validate();
+  if (miss.length) {
+    panel.innerHTML = '<strong>Please complete the following before signing:</strong><ul>' + miss.map(m => '<li>' + escHtml(m) + '</li>').join('') + '</ul>';
+    panel.classList.add('show');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  panel.classList.remove('show'); panel.innerHTML = '';
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.lastChild.textContent = ' Submitting…';
+  const md = buildMetadata();
+  try {
+    const res = await fetch(HP_CONFIG.API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ token: TOKEN, agreement_version: AGREEMENT_VERSION, metadata: md })
+    });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || 'Submission failed');
+    const done = document.getElementById('donePanel');
+    done.innerHTML = '<strong>Thank you. Your License to Publish has been received.</strong><br>Reference: ' + escHtml(out.ref) +
+      ' · ' + escHtml(out.received_at) + '<br>A PDF copy has been sent to ' + escHtml(out.sent_to || 'the corresponding author') +
+      '. If anything needs to change, you can correct the form and submit again; the latest submission replaces the earlier one.';
+    done.classList.add('show');
+    done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (err) {
+    panel.innerHTML = '<strong>The form could not be submitted.</strong><br>' + escHtml(String(err.message || err)) +
+      '<br>Please use “Save a PDF copy”, and email the PDF to journal@hpolitics.org.';
+    panel.classList.add('show');
+  } finally {
+    btn.disabled = false; btn.lastChild.textContent = ' Agree to License Terms and Submit';
+  }
+}
+
+/* ---------- init ---------- */
+function applyPrefill(P) {
+  if (P) {
+    document.getElementById('prefillNotice').style.display = 'block';
+    Object.assign(state.office, P.office || {});
+    Object.assign(state.ms, P.ms || {});
+    state.abstract = P.abstract || '';
+    state.keywords = (P.keywords || []).join('; ');
+    state.funding_statement = P.funding_statement || '';
+    Object.assign(state.decl, P.decl || {});
+    (P.authors && P.authors.length ? P.authors : [{}]).forEach(a => addAuthor(a));
+    if (P.fundMode) {
+      document.querySelector(`input[name="fundmode"][value="${P.fundMode}"]`).checked = true;
+      state.fundMode = P.fundMode;
+      document.getElementById('funderArea').style.display = P.fundMode === 'funded' ? 'block' : 'none';
+      (P.funders || []).forEach(f => addFunder(f));
+    }
+  } else {
+    addAuthor();
+  }
+  bindStatic();
+  onTypeChange();
+  updateCounts();
+}
+(async function init() {
+  let P = null;
+  if (TOKEN) {
+    try {
+      const res = await fetch(HP_CONFIG.API_URL + '?t=' + encodeURIComponent(TOKEN));
+      const out = await res.json();
+      if (!out.ok) throw new Error(out.error || 'not found');
+      P = out.prefill || null;
+      if (out.submitted_at) showBanner('info', 'This agreement was already submitted on ' + escHtml(out.submitted_at) +
+        '. You may review it and submit again; the new submission will replace the earlier one.');
+    } catch (err) {
+      showBanner('error', 'We could not load the pre-filled details for this link (' + escHtml(String(err.message || err)) +
+        '). You can still complete the form below, or contact journal@hpolitics.org.');
+    }
+  }
+  applyPrefill(P);
+  document.getElementById('loading').classList.add('hide');
+})();
+</script>
+
+</body>
+</html>

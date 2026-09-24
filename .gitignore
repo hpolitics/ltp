@@ -1,0 +1,5 @@
+# Never commit personal data
+register.csv
+author_links.csv
+*.csv
+배포안내*
