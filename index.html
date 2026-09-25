@@ -631,6 +631,7 @@
           <div class="field-group"><label>Issue</label><input type="text" data-bind="office.issue" data-office></div>
           <div class="field-group"><label>Article number</label><input type="text" data-bind="office.article_no" data-office placeholder="e.g., e014"></div>
         </div>
+        <div class="field-group"><label>Series</label><input type="text" data-bind="office.series" data-office></div>
         <div class="field-group"><label>DOI</label><input type="text" data-bind="office.doi" data-office placeholder="Assigned at typesetting, e.g., 10.66534/hp.2026.0014"></div>
         <div class="field-row">
           <div class="field-group"><label>Received</label><input type="text" data-bind="office.received" data-office placeholder="YYYY-MM-DD"></div>
@@ -661,7 +662,6 @@
             <option>Theoretical / Conceptual Article</option>
             <option>Methods</option>
             <option>Policy &amp; Practice</option>
-            <option>National Health Politics</option>
             <option>Perspective</option>
             <option>Commentary</option>
             <option>Response</option>
@@ -862,7 +862,7 @@ const LICENSE_URLS = {
 };
 
 const state = {
-  office: { volume: '', issue: '', article_no: '', doi: '', received: '', revised: '', accepted: '', published: '' },
+  office: { volume: '', issue: '', article_no: '', series: '', doi: '', received: '', revised: '', accepted: '', published: '' },
   ms: { title: '', type: '', ms_id: '', submitted: '', running_head: '' },
   abstract: '', keywords: '', funding_statement: '',
   decl: { coi: '', ethics: '', data: '' },
@@ -1198,7 +1198,7 @@ function buildMetadata() {
     schema: 'health-politics-ltp-metadata/2.0',
     generated: new Date().toISOString(),
     journal: { title: 'Health Politics', abbrev: 'Health Polit', eissn: '3092-5517', doi_prefix: '10.66534', publisher: 'Division of Health Policy and Management, Korea University' },
-    volume: o.volume, issue: o.issue, article_number: o.article_no, doi: o.doi,
+    volume: o.volume, issue: o.issue, article_number: o.article_no, series: o.series, doi: o.doi,
     dates: { received: o.received, revised: o.revised, accepted: o.accepted, published_online: o.published, submitted: state.ms.submitted },
     manuscript_id: state.ms.ms_id,
     article_type: state.ms.type,
@@ -1288,6 +1288,7 @@ function applyPrefill(P) {
     document.getElementById('prefillNotice').style.display = 'block';
     Object.assign(state.office, P.office || {});
     Object.assign(state.ms, P.ms || {});
+    if (state.ms.type === 'National Health Politics') { state.office.series = 'National Health Politics'; state.ms.type = ''; }
     state.abstract = P.abstract || '';
     state.keywords = (P.keywords || []).join('; ');
     state.funding_statement = P.funding_statement || '';
