@@ -151,6 +151,7 @@ function renderHtml_(md, ref, stamp) {
     '<div class="jn">Signed electronically · ' + esc_(stamp) + ' · Reference ' + esc_(ref) + '</div>' +
     '<h2>Article</h2><table>' + row('Title', '<b>' + esc_(md.title) + '</b>') + row('Article type', esc_(md.article_type)) +
     row('Volume / issue', esc_([md.volume, md.issue].filter(Boolean).join(' / '))) + row('Article number', esc_(md.article_number)) +
+    row('Series', esc_(md.series)) +
     row('DOI', esc_(md.doi)) + row('Manuscript no.', esc_(md.manuscript_id)) +
     row('Dates', esc_(Object.keys(md.dates || {}).filter(k => md.dates[k]).map(k => k.replace('_', ' ') + ' ' + md.dates[k]).join(' · '))) +
     row('Keywords', esc_((md.keywords || []).join('; '))) + '</table>' +
